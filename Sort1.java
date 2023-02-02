@@ -1,3 +1,4 @@
+import java.util.*;
 public class Sort1
 {
 	static void bubble(int[] arr)
@@ -23,9 +24,40 @@ public class Sort1
 		}
 		
 	}
+	static void insertion(int[] arr)
+	{
+		int n =arr.length;
+		
+		for(int i=1;i<n;i++)
+		{
+			int key = arr[i];
+			int j =i-1;
+			while((j>-1) && (arr[j]>key))
+			{
+				arr[j+1]=arr[j];
+				j--;
+			}
+			arr[j+1]=key;
+		}
+		for(int i=0;i<n;i++)
+		{
+			System.out.println(arr[i]);
+		}
+		
+	}
 	public static void main(String args[])
 	{
 		int arr[]={1,3,6,2,4};
-		bubble(arr);
+		Scanner sc = new Scanner(System.in);
+		int choice = sc.nextInt();
+		switch(choice)
+		{
+			case 1:
+			bubble(arr);
+			
+			case 2:
+			insertion(arr);
+		}
+		
 	}
 }
